@@ -32,21 +32,21 @@ By using this script, you acknowledge that you understand the risks and accept f
 
 1. Download the script:
 
-  ```bash
-  curl -O https://raw.githubusercontent.com/W4JEW/dedupe/main/dedupe.py
-  ```
+    ```bash
+    curl -O https://raw.githubusercontent.com/W4JEW/dedupe/main/dedupe.py
+    ```
 
 2. Make it executable:
 
-  ```bash
-  chmod +x dedupe.py
-  ```
+    ```bash
+    chmod +x dedupe.py
+    ```
 
 3. (Optional) Move to a directory in your PATH:
 
-  ```bash
-  mv dedupe.py /usr/local/bin/dedupe
-  ```
+```bash
+mv dedupe.py /usr/local/bin/dedupe
+```
 
 ## Usage
 
@@ -65,18 +65,18 @@ By using this script, you acknowledge that you understand the risks and accept f
 
 ### Command Line Options
 
-| Option | Short | Description |
-|--------|-------|-------------|
-| `directory` | - | Directory to scan (default: home directory) |
-| `--report-only` | `-r` | Generate report only, don't delete (default) |
-| `--delete` | `-d` | Delete duplicates after showing report |
-| `--dry-run` | - | Show what would be deleted without deleting (use with `-d`) |
-| `--output` | `-o` | Save report to a file |
-| `--keep` | - | Which file to keep: `oldest`, `newest`, or `first` (default: `oldest`) |
-| `--min-size` | - | Minimum file size in bytes (default: 1024) |
-| `--exclude` | - | Additional directories to exclude |
-| `--yes` | `-y` | Skip confirmation prompts |
-| `--help` | `-h` | Show help message |
+| Option                 | Short | Description                                                            |
+| ---------------------- | ----- | ---------------------------------------------------------------------- |
+| `directory`            | -     | Directory to scan (default: home directory)                            |
+| `--report-only`        | `-r`  | Generate report only, don't delete (default)                           |
+| `--delete`             | `-d`  | Delete duplicates after showing report                                 |
+| `--dry-run`            | -     | Show what would be deleted without deleting (use with `-d`)            |
+| `--output`             | `-o`  | Save report to a file                                                  |
+| `--keep`               | -     | Which file to keep: `oldest`, `newest`, or `first` (default: `oldest`) |
+| `--min-size`           | -     | Minimum file size in bytes (default: 1024)                             |
+| `--exclude`            | -     | Additional directories to exclude                                      |
+| `--yes`                | `-y`  | Skip confirmation prompts                                              |
+| `--help`               | `-h`  | Show help message                                                      |
 
 ### Examples
 
@@ -89,7 +89,8 @@ Preview what would be deleted without actually deleting anything:
 ```
 
 Output:
-```
+
+```text
 🔍 DRY RUN - Would delete 42 duplicate files
    This would free up 1.23 GB
 
@@ -152,6 +153,7 @@ You'll be prompted for confirmation before any files are deleted.
 ## Default Exclusions
 
 The following directories are excluded by default:
+
 - `.Trash` - macOS Trash folder
 - `Library` - System and application support files
 - `.git` - Git repositories
@@ -167,11 +169,11 @@ The following directories are excluded by default:
 - **Path validation**: Verifies the target directory exists before scanning
 - **Error handling**: Gracefully handles permission errors and unreadable files
 
-**Note:** Despite these safety features, data loss can still occur. Please see the [Disclaimer](#%E2%9A%A0%EF%B8%8F-disclaimer) section above.
+**Note:** Despite these safety features, data loss can still occur. Please see the [Disclaimer](#️-disclaimer) section above.
 
 ## Sample Output
 
-```
+```text
 Starting deduplication scan of: /Users/username/Documents
 Minimum file size: 1.00 KB
 Excluded directories: .Trash, .cache, .git, Library, __pycache__, node_modules
@@ -211,6 +213,7 @@ Duplicate Set #1
 ## Performance
 
 The script is optimized for large directory trees:
+
 - **Size pre-filtering**: Eliminates ~99% of files from hashing
 - **Efficient hashing**: Uses 64KB blocks to minimize memory usage
 - **Progress indicators**: Shows scan progress every 1000 files
@@ -228,6 +231,7 @@ The script is optimized for large directory trees:
 ### "Error: --dry-run must be used with -d/--delete"
 
 The `--dry-run` flag only works with the delete command:
+
 ```bash
 # Wrong
 ./dedupe.py --dry-run ~/Documents
@@ -239,6 +243,7 @@ The `--dry-run` flag only works with the delete command:
 ### Permission Denied Errors
 
 If you see permission errors, you may need to run with elevated permissions:
+
 ```bash
 sudo ./dedupe.py ~/Library/Caches
 ```
