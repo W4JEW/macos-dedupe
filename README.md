@@ -33,7 +33,7 @@ By using this script, you acknowledge that you understand the risks and accept f
 1. Download the script:
 
     ```bash
-    curl -O https://raw.githubusercontent.com/W4JEW/dedupe/main/dedupe.py
+    curl -O https://raw.githubusercontent.com/W4JEW/macos-dedupe/refs/heads/main/dedupe.py
     ```
 
 2. Make it executable:
